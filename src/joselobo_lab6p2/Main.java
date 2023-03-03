@@ -42,6 +42,8 @@ public class Main extends javax.swing.JFrame {
         lb_TipoDeCuenta = new javax.swing.JLabel();
         jC_TipodeCuenta = new javax.swing.JComboBox<>();
         B_ReturnaCrear_Inicio = new javax.swing.JButton();
+        jF_Usuario = new javax.swing.JFrame();
+        jF_Artista = new javax.swing.JFrame();
         lb_TituloLogin = new javax.swing.JLabel();
         tb_Usuario = new javax.swing.JTextField();
         lb_Usuario = new javax.swing.JLabel();
@@ -185,6 +187,28 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(139, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jF_UsuarioLayout = new javax.swing.GroupLayout(jF_Usuario.getContentPane());
+        jF_Usuario.getContentPane().setLayout(jF_UsuarioLayout);
+        jF_UsuarioLayout.setHorizontalGroup(
+            jF_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jF_UsuarioLayout.setVerticalGroup(
+            jF_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jF_ArtistaLayout = new javax.swing.GroupLayout(jF_Artista.getContentPane());
+        jF_Artista.getContentPane().setLayout(jF_ArtistaLayout);
+        jF_ArtistaLayout.setHorizontalGroup(
+            jF_ArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jF_ArtistaLayout.setVerticalGroup(
+            jF_ArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
 
@@ -196,6 +220,11 @@ public class Main extends javax.swing.JFrame {
         lb_Password.setText("Password");
 
         B_IniciarSeccion.setText("Iniciar Seccion");
+        B_IniciarSeccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_IniciarSeccionMouseClicked(evt);
+            }
+        });
 
         B_CrearUsuarioLogin.setText("Crear Usuario");
         B_CrearUsuarioLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -289,13 +318,13 @@ public class Main extends javax.swing.JFrame {
             if (test) {
                 Artista A = new Artista(tb_NombreDeArtista.getText(), tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
                 usuarios.add(A);
-                JOptionPane.showConfirmDialog(this, "Usuario Creado", "Usuario Creado", 1);
+                JOptionPane.showMessageDialog(this, "Usuario Creado", "Usuario Creado", 1);
 
             } else {
-                JOptionPane.showConfirmDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
+                JOptionPane.showMessageDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
             }
         } else {
-            JOptionPane.showConfirmDialog(this, "Tiene que ser mayor de 18 anos", "Menor de Edad", 2);
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor de 18 anos", "Menor de Edad", 2);
 
         }
     }//GEN-LAST:event_B_CrearArtistaMouseClicked
@@ -313,17 +342,45 @@ public class Main extends javax.swing.JFrame {
         }
         if ((int) js_Edad.getValue() >= 12) {
             if (test) {
-                Cliente C = new Cliente(tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
+                Cliente C = new Cliente(tb_Username.getText(), tb_PasswordCreate.getText(), (int) js_Edad.getValue());
                 usuarios.add(C);
-                JOptionPane.showConfirmDialog(this, "Usuario Creado", "Usuario Creado", 1);
+                tb_Username.setText("");
+                tb_PasswordCreate.setText("");
+                JOptionPane.showMessageDialog(this, "Usuario Creado", "Usuario Creado", 1);
 
             } else {
-                JOptionPane.showConfirmDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
+                JOptionPane.showMessageDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
             }
         } else {
-            JOptionPane.showConfirmDialog(this, "Tiene que ser mayor de 12 anos", "Menor de Edad", 2);
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor de 12 anos", "Menor de Edad", 2);
         }
     }//GEN-LAST:event_B_CrearUsuarioMouseClicked
+
+    private void B_IniciarSeccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_IniciarSeccionMouseClicked
+        // TODO add your handling code here:
+        int ubicacion = -1;
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getUsername().equals(tb_Usuario.getText())) {
+                ubicacion = i;
+            }
+        }
+        if (ubicacion != -1) {
+            if (usuarios.get(ubicacion).getContrasena().equals(tb_Password.getText())) {
+                if (usuarios.get(ubicacion) instanceof Artista) {
+                    jF_Artista.pack();
+                    jF_Artista.setVisible(true);
+                } else {
+                    jF_Usuario.pack();
+                    jF_Usuario.setVisible(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Contrase\u00f1a Incorrecta", "Contrase\u00f1a Incorrecta", 2);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El Usuario no existe", "Error de Usuario", 2);
+        }
+
+    }//GEN-LAST:event_B_IniciarSeccionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -367,6 +424,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_IniciarSeccion;
     private javax.swing.JButton B_ReturnaCrear_Inicio;
     private javax.swing.JComboBox<String> jC_TipodeCuenta;
+    private javax.swing.JFrame jF_Artista;
+    private javax.swing.JFrame jF_Usuario;
     private javax.swing.JPanel jP_CrearArtista;
     private javax.swing.JFrame jf_CrearUsuario;
     private javax.swing.JSpinner js_Edad;
@@ -390,5 +449,6 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Reproduccion> listasDeReproduccion = new ArrayList();
     ArrayList<Lanzamiento> listaDeLanzamiento = new ArrayList();
     ArrayList<Cancion> canciones = new ArrayList();
+    Usuario UsuarioActual;
 
 }
