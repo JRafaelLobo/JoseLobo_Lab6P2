@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package joselobo_lab6p2;
+
+import java.util.ArrayList;
+import javax.swing.RepaintManager;
 
 /**
  *
@@ -26,21 +25,253 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jf_CrearUsuario = new javax.swing.JFrame();
+        lb_TituloCrearUsuario = new javax.swing.JLabel();
+        lb_UserName = new javax.swing.JLabel();
+        tb_Username = new javax.swing.JTextField();
+        lb_PasswordCreate = new javax.swing.JLabel();
+        tb_PasswordCreate = new javax.swing.JTextField();
+        lb_Edad = new javax.swing.JLabel();
+        js_Edad = new javax.swing.JSpinner();
+        B_CrearUsuario = new javax.swing.JButton();
+        jP_CrearArtista = new javax.swing.JPanel();
+        lb_NombreDeArtista = new javax.swing.JLabel();
+        B_CrearArtista = new javax.swing.JButton();
+        tb_NombreDeArtista = new javax.swing.JTextField();
+        lb_TipoDeCuenta = new javax.swing.JLabel();
+        jC_TipodeCuenta = new javax.swing.JComboBox<>();
+        B_ReturnaCrear_Inicio = new javax.swing.JButton();
+        lb_TituloLogin = new javax.swing.JLabel();
+        tb_Usuario = new javax.swing.JTextField();
+        lb_Usuario = new javax.swing.JLabel();
+        lb_Password = new javax.swing.JLabel();
+        tb_Password = new javax.swing.JPasswordField();
+        B_IniciarSeccion = new javax.swing.JButton();
+        B_CrearUsuarioLogin = new javax.swing.JButton();
+
+        jf_CrearUsuario.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jf_CrearUsuario.setTitle("Crear Usuario");
+
+        lb_TituloCrearUsuario.setText("Crear Usuario");
+
+        lb_UserName.setText("UserName");
+
+        lb_PasswordCreate.setText("Password");
+
+        lb_Edad.setText("Edad");
+
+        B_CrearUsuario.setLabel("Crear Usuario");
+        B_CrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_CrearUsuarioActionPerformed(evt);
+            }
+        });
+
+        lb_NombreDeArtista.setText("Nombre de Artista");
+
+        B_CrearArtista.setText("Crear Artista");
+
+        javax.swing.GroupLayout jP_CrearArtistaLayout = new javax.swing.GroupLayout(jP_CrearArtista);
+        jP_CrearArtista.setLayout(jP_CrearArtistaLayout);
+        jP_CrearArtistaLayout.setHorizontalGroup(
+            jP_CrearArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_CrearArtistaLayout.createSequentialGroup()
+                .addGroup(jP_CrearArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jP_CrearArtistaLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(jP_CrearArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(B_CrearArtista)
+                            .addComponent(lb_NombreDeArtista)))
+                    .addGroup(jP_CrearArtistaLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(tb_NombreDeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jP_CrearArtistaLayout.setVerticalGroup(
+            jP_CrearArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_CrearArtistaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lb_NombreDeArtista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tb_NombreDeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(B_CrearArtista)
+                .addGap(22, 22, 22))
+        );
+
+        lb_TipoDeCuenta.setText("Tipo de Cuenta");
+
+        jC_TipodeCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Artista" }));
+        jC_TipodeCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jC_TipodeCuentaActionPerformed(evt);
+            }
+        });
+
+        B_ReturnaCrear_Inicio.setText("Return");
+        B_ReturnaCrear_Inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_ReturnaCrear_InicioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jf_CrearUsuarioLayout = new javax.swing.GroupLayout(jf_CrearUsuario.getContentPane());
+        jf_CrearUsuario.getContentPane().setLayout(jf_CrearUsuarioLayout);
+        jf_CrearUsuarioLayout.setHorizontalGroup(
+            jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(lb_TituloCrearUsuario))
+                    .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_UserName)
+                            .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                                .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tb_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_PasswordCreate)
+                                    .addComponent(tb_PasswordCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_Edad)
+                                    .addComponent(lb_TipoDeCuenta)
+                                    .addComponent(jC_TipodeCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(B_CrearUsuario)
+                                    .addComponent(js_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                        .addComponent(jP_CrearArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                                        .addGap(104, 104, 104)
+                                        .addComponent(B_ReturnaCrear_Inicio)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addGap(194, 194, 194))
+        );
+        jf_CrearUsuarioLayout.setVerticalGroup(
+            jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lb_TituloCrearUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(lb_UserName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jf_CrearUsuarioLayout.createSequentialGroup()
+                        .addComponent(tb_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb_PasswordCreate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tb_PasswordCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb_Edad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(js_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jP_CrearArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_TipoDeCuenta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jC_TipodeCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(jf_CrearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(B_CrearUsuario)
+                    .addComponent(B_ReturnaCrear_Inicio))
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+
+        lb_TituloLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_TituloLogin.setText("Login");
+
+        lb_Usuario.setText("User");
+
+        lb_Password.setText("Password");
+
+        B_IniciarSeccion.setText("Iniciar Seccion");
+
+        B_CrearUsuarioLogin.setText("Crear Usuario");
+        B_CrearUsuarioLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_CrearUsuarioLoginMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lb_Usuario)
+                            .addComponent(tb_Usuario)
+                            .addComponent(lb_Password)
+                            .addComponent(tb_Password, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(lb_TituloLogin))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(B_IniciarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(B_CrearUsuarioLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(lb_TituloLogin)
+                .addGap(18, 18, 18)
+                .addComponent(lb_Usuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tb_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(lb_Password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tb_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(B_IniciarSeccion)
+                .addGap(34, 34, 34)
+                .addComponent(B_CrearUsuarioLogin)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void B_CrearUsuarioLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_CrearUsuarioLoginMouseClicked
+        // TODO add your handling code here:
+        jf_CrearUsuario.pack();
+        this.setVisible(false);
+        jf_CrearUsuario.setVisible(true);
+        jP_CrearArtista.setVisible(false);
+    }//GEN-LAST:event_B_CrearUsuarioLoginMouseClicked
+
+    private void B_ReturnaCrear_InicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_ReturnaCrear_InicioMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(true);
+        jf_CrearUsuario.setVisible(false);
+    }//GEN-LAST:event_B_ReturnaCrear_InicioMouseClicked
+
+    private void jC_TipodeCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_TipodeCuentaActionPerformed
+        // TODO add your handling code here:
+        if (jC_TipodeCuenta.getSelectedIndex() == 1) {
+            B_CrearUsuario.setVisible(false);
+            jP_CrearArtista.setVisible(true);
+        } else {
+            B_CrearUsuario.setVisible(true);
+            jP_CrearArtista.setVisible(false);
+        }
+    }//GEN-LAST:event_jC_TipodeCuentaActionPerformed
+
+    private void B_CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_CrearUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_CrearUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +309,33 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_CrearArtista;
+    private javax.swing.JButton B_CrearUsuario;
+    private javax.swing.JButton B_CrearUsuarioLogin;
+    private javax.swing.JButton B_IniciarSeccion;
+    private javax.swing.JButton B_ReturnaCrear_Inicio;
+    private javax.swing.JComboBox<String> jC_TipodeCuenta;
+    private javax.swing.JPanel jP_CrearArtista;
+    private javax.swing.JFrame jf_CrearUsuario;
+    private javax.swing.JSpinner js_Edad;
+    private javax.swing.JLabel lb_Edad;
+    private javax.swing.JLabel lb_NombreDeArtista;
+    private javax.swing.JLabel lb_Password;
+    private javax.swing.JLabel lb_PasswordCreate;
+    private javax.swing.JLabel lb_TipoDeCuenta;
+    private javax.swing.JLabel lb_TituloCrearUsuario;
+    private javax.swing.JLabel lb_TituloLogin;
+    private javax.swing.JLabel lb_UserName;
+    private javax.swing.JLabel lb_Usuario;
+    private javax.swing.JTextField tb_NombreDeArtista;
+    private javax.swing.JPasswordField tb_Password;
+    private javax.swing.JTextField tb_PasswordCreate;
+    private javax.swing.JTextField tb_Username;
+    private javax.swing.JTextField tb_Usuario;
     // End of variables declaration//GEN-END:variables
+//Mis Variables
+    ArrayList<Usuario> usuarios = new ArrayList();
+    ArrayList<Reproduccion> listasDeReproduccion = new ArrayList();
+    ArrayList<Lanzamiento> listaDeLanzamiento = new ArrayList();
+    
 }
