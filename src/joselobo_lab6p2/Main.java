@@ -2,6 +2,7 @@ package joselobo_lab6p2;
 
 import java.util.ArrayList;
 import javax.swing.RepaintManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,15 +62,20 @@ public class Main extends javax.swing.JFrame {
         lb_Edad.setText("Edad");
 
         B_CrearUsuario.setLabel("Crear Usuario");
-        B_CrearUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B_CrearUsuarioActionPerformed(evt);
+        B_CrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_CrearUsuarioMouseClicked(evt);
             }
         });
 
         lb_NombreDeArtista.setText("Nombre de Artista");
 
         B_CrearArtista.setText("Crear Artista");
+        B_CrearArtista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_CrearArtistaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jP_CrearArtistaLayout = new javax.swing.GroupLayout(jP_CrearArtista);
         jP_CrearArtista.setLayout(jP_CrearArtistaLayout);
@@ -269,9 +275,55 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jC_TipodeCuentaActionPerformed
 
-    private void B_CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_CrearUsuarioActionPerformed
+    private void B_CrearArtistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_CrearArtistaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_B_CrearUsuarioActionPerformed
+        boolean test = true;
+        for (int i = 0; i < usuarios.size(); i++) {
+
+            if (tb_Username.getText().equals(usuarios.get(i).getUsername())) {
+                test = false;
+                break;
+            }
+        }
+        if ((int) js_Edad.getValue() >= 18) {
+            if (test) {
+                Artista A = new Artista(tb_NombreDeArtista.getText(), tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
+                usuarios.add(A);
+                JOptionPane.showConfirmDialog(this, "Usuario Creado", "Usuario Creado", 1);
+
+            } else {
+                JOptionPane.showConfirmDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
+            }
+        } else {
+            JOptionPane.showConfirmDialog(this, "Tiene que ser mayor de 18 anos", "Menor de Edad", 2);
+
+        }
+    }//GEN-LAST:event_B_CrearArtistaMouseClicked
+
+    private void B_CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_CrearUsuarioMouseClicked
+        // TODO add your handling code here:
+
+        boolean test = true;
+        for (int i = 0; i < usuarios.size(); i++) {
+
+            if (tb_Username.getText().equals(usuarios.get(i).getUsername())) {
+                test = false;
+                break;
+            }
+        }
+        if ((int) js_Edad.getValue() >= 12) {
+            if (test) {
+                Cliente C = new Cliente(tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
+                usuarios.add(C);
+                JOptionPane.showConfirmDialog(this, "Usuario Creado", "Usuario Creado", 1);
+
+            } else {
+                JOptionPane.showConfirmDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
+            }
+        } else {
+            JOptionPane.showConfirmDialog(this, "Tiene que ser mayor de 12 anos", "Menor de Edad", 2);
+        }
+    }//GEN-LAST:event_B_CrearUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -337,5 +389,6 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Usuario> usuarios = new ArrayList();
     ArrayList<Reproduccion> listasDeReproduccion = new ArrayList();
     ArrayList<Lanzamiento> listaDeLanzamiento = new ArrayList();
-    
+    ArrayList<Cancion> canciones = new ArrayList();
+
 }
