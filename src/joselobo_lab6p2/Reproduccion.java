@@ -53,4 +53,9 @@ public class Reproduccion {
         this.canciones.remove(index);
     }
 
+    @Override
+    public String toString() {
+        return titulo;
+    }
+
 }

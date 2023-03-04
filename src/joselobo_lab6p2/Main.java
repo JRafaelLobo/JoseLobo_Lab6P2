@@ -3,6 +3,8 @@ package joselobo_lab6p2;
 import java.util.ArrayList;
 import javax.swing.RepaintManager;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -47,9 +49,9 @@ public class Main extends javax.swing.JFrame {
         jT_Usuario = new javax.swing.JTabbedPane();
         jP_Usuario_Main = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jTree_Usuarios = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        JList_Favoritas = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jF_Artista = new javax.swing.JFrame();
@@ -198,34 +200,36 @@ public class Main extends javax.swing.JFrame {
 
         jP_Usuario_Main.setName("Main"); // NOI18N
 
-        jScrollPane1.setViewportView(jTree1);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Listas");
+        jTree_Usuarios.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jTree_Usuarios);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        JList_Favoritas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "a" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(JList_Favoritas);
 
         javax.swing.GroupLayout jP_Usuario_MainLayout = new javax.swing.GroupLayout(jP_Usuario_Main);
         jP_Usuario_Main.setLayout(jP_Usuario_MainLayout);
         jP_Usuario_MainLayout.setHorizontalGroup(
             jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_Usuario_MainLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(77, 77, 77)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
+                .addGap(83, 83, 83)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jP_Usuario_MainLayout.setVerticalGroup(
             jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_Usuario_MainLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(63, 63, 63)
                 .addGroup(jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jT_Usuario.addTab("Main", jP_Usuario_Main);
@@ -436,14 +440,31 @@ public class Main extends javax.swing.JFrame {
         }
         if (ubicacion != -1) {
             if (usuarios.get(ubicacion).getContrasena().equals(tb_Password.getText())) {
+                UsuarioActual = usuarios.get(ubicacion);
                 if (usuarios.get(ubicacion) instanceof Artista) {
                     jF_Artista.pack();
                     jF_Artista.setLocationRelativeTo(this);
                     jF_Artista.setVisible(true);
+
                 } else {
                     jF_Usuario.pack();
                     jF_Usuario.setLocationRelativeTo(this);
                     jF_Usuario.setVisible(true);
+                    DefaultTreeModel T = (DefaultTreeModel) jTree_Usuarios.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) T.getRoot();
+                    for (Reproduccion reproduccion : ((Cliente) UsuarioActual).getReproducciones()) {
+                        DefaultMutableTreeNode r = new DefaultMutableTreeNode(reproduccion);
+                        raiz.add(r);
+                    }
+                    for (int i = 0; i < raiz.getChildCount(); i++) {
+                        DefaultMutableTreeNode R = (DefaultMutableTreeNode) raiz.getChildAt(i);
+                        ArrayList<Cancion> a = ((Reproduccion) R.getUserObject()).getCanciones();
+                        for (Cancion cancion : a) {
+                            DefaultMutableTreeNode r = new DefaultMutableTreeNode(a);
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(r);
+                        }
+                    }
+                    T.reload();
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Contrase\u00f1a Incorrecta", "Contrase\u00f1a Incorrecta", 2);
@@ -495,10 +516,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_CrearUsuarioLogin;
     private javax.swing.JButton B_IniciarSeccion;
     private javax.swing.JButton B_ReturnaCrear_Inicio;
+    private javax.swing.JList<String> JList_Favoritas;
     private javax.swing.JComboBox<String> jC_TipodeCuenta;
     private javax.swing.JFrame jF_Artista;
     private javax.swing.JFrame jF_Usuario;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jP_CrearArtista;
     private javax.swing.JPanel jP_Usuario_Main;
     private javax.swing.JPanel jPanel2;
@@ -506,7 +527,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jT_Usuario;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTree jTree_Usuarios;
     private javax.swing.JFrame jf_CrearUsuario;
     private javax.swing.JSpinner js_Edad;
     private javax.swing.JLabel lb_Edad;
