@@ -9,10 +9,11 @@ public class Single extends Lanzamiento {
     public Single() {
     }
 
-    public Single(int likes, String fecha, String titulo) {
-        super(likes, fecha, titulo);
+    public Single(int likes, int id, String fecha, String titulo) {
+        super(likes, id, fecha, titulo);
     }
 
+   
     public Cancion getCancion() {
         return cancion;
     }

@@ -6,12 +6,12 @@ import java.util.Date;
 public class Albun extends Lanzamiento {
 
     ArrayList<Cancion> canciones = new ArrayList();
-    int id;
 
-    public Albun(int id, int likes, String fecha, String titulo) {
-        super(likes, fecha, titulo);
-        this.id = id;
+    public Albun(int likes, int id, String fecha, String titulo) {
+        super(likes, id, fecha, titulo);
     }
+
+    
 
     public ArrayList<Cancion> getCanciones() {
         return canciones;
@@ -19,14 +19,6 @@ public class Albun extends Lanzamiento {
 
     public void setCanciones(ArrayList<Cancion> canciones) {
         this.canciones = canciones;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void AddCanciones(Cancion C) {

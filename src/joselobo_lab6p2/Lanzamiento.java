@@ -4,15 +4,16 @@ import java.util.Date;
 
 public class Lanzamiento {
 
-    int likes;
+    int likes, id;
     String fecha;
     String titulo;
 
     public Lanzamiento() {
     }
 
-    public Lanzamiento(int likes, String fecha, String titulo) {
+    public Lanzamiento(int likes, int id, String fecha, String titulo) {
         this.likes = likes;
+        this.id = id;
         this.fecha = fecha;
         this.titulo = titulo;
     }
@@ -39,6 +40,14 @@ public class Lanzamiento {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
