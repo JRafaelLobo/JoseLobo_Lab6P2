@@ -324,6 +324,11 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Cantidad de Canciones A crear");
 
         B_AlbunCrear.setText("Crear");
+        B_AlbunCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_AlbunCrearMouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("Dia de Lanzamiento");
 
@@ -367,9 +372,19 @@ public class Main extends javax.swing.JFrame {
         jPanel4.add(P_CantAlbun, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 450));
 
         B_CrearAlbun.setText("Crear Albun");
+        B_CrearAlbun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_CrearAlbunMouseClicked(evt);
+            }
+        });
         jPanel4.add(B_CrearAlbun, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         B_CrearSingle.setText("Crear Single");
+        B_CrearSingle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_CrearSingleActionPerformed(evt);
+            }
+        });
         jPanel4.add(B_CrearSingle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         jLabel3.setText("Titulo");
@@ -377,6 +392,11 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setText("Duracion");
 
         B_SiguienteCancionAlbun.setText("Siguiente");
+        B_SiguienteCancionAlbun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_SiguienteCancionAlbunMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout P_CrearAlbunLayout = new javax.swing.GroupLayout(P_CrearAlbun);
         P_CrearAlbun.setLayout(P_CrearAlbunLayout);
@@ -619,6 +639,8 @@ public class Main extends javax.swing.JFrame {
                         }
                     }
                     T.reload();
+                    P_CantAlbun.setVisible(false);
+                    P_CrearAlbun.setVisible(false);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Contrase\u00f1a Incorrecta", "Contrase\u00f1a Incorrecta", 2);
@@ -628,6 +650,36 @@ public class Main extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_B_IniciarSeccionMouseClicked
+
+    private void B_CrearAlbunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_CrearAlbunMouseClicked
+        // TODO add your handling code here:
+        P_CantAlbun.setVisible(true);
+    }//GEN-LAST:event_B_CrearAlbunMouseClicked
+
+    private void B_AlbunCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_AlbunCrearMouseClicked
+        // TODO add your handling code here:
+        A = new Albun(listaDeLanzamiento.size() + 1, 0, jDateChooser1.getDate().toString(), tf_NombreAlbun.getText());
+        P_CantAlbun.setVisible(false);
+        P_CrearAlbun.setVisible(true);
+        cont = 0;
+    }//GEN-LAST:event_B_AlbunCrearMouseClicked
+
+    private void B_SiguienteCancionAlbunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_SiguienteCancionAlbunMouseClicked
+        // TODO add your handling code here:
+        if (cont < ((int) JS_CantAlbun.getValue())) {
+            A.AddCanciones(new Cancion(tf_TituloCancionAlbun.getText(), tf_DuracionCancionAlbun.getText(), listaDeLanzamiento.size() + 1));
+            cont++;
+        } else {
+            P_CrearAlbun.setVisible(false);
+            ((Artista) UsuarioActual).getAlbunes().add(A);
+        }
+        tf_TituloCancionAlbun.setText("");
+        tf_DuracionCancionAlbun.setText("");
+    }//GEN-LAST:event_B_SiguienteCancionAlbunMouseClicked
+
+    private void B_CrearSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_CrearSingleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_CrearSingleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -726,5 +778,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Lanzamiento> listaDeLanzamiento = new ArrayList();
     ArrayList<Cancion> canciones = new ArrayList();
     Usuario UsuarioActual;
+    Albun A;
+    int cont;
 
 }

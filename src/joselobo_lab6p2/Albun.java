@@ -8,7 +8,7 @@ public class Albun extends Lanzamiento {
     ArrayList<Cancion> canciones = new ArrayList();
     int id;
 
-    public Albun(int id, int likes, Date fecha, String titulo) {
+    public Albun(int id, int likes, String fecha, String titulo) {
         super(likes, fecha, titulo);
         this.id = id;
     }

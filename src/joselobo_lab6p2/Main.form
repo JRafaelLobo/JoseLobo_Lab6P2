@@ -505,6 +505,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Crear"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B_AlbunCrearMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
                     </Component>
@@ -519,6 +522,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Crear Albun"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B_CrearAlbunMouseClicked"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="110" y="30" width="-1" height="-1"/>
@@ -529,6 +535,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Crear Single"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_CrearSingleActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="370" y="30" width="-1" height="-1"/>
@@ -602,6 +611,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Siguiente"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B_SiguienteCancionAlbunMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

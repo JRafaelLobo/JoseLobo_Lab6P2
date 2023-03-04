@@ -8,6 +8,13 @@ public class Cancion {
     public Cancion() {
     }
 
+    public Cancion(String titulo, String duracion, int albunRef) {
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.albunRef = albunRef;
+    }
+    
+
     public String getTitulo() {
         return titulo;
     }

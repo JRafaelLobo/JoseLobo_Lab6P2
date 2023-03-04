@@ -3,14 +3,15 @@ package joselobo_lab6p2;
 import java.util.Date;
 
 public class Lanzamiento {
+
     int likes;
-    Date fecha;
+    String fecha;
     String titulo;
 
     public Lanzamiento() {
     }
 
-    public Lanzamiento(int likes, Date fecha, String titulo) {
+    public Lanzamiento(int likes, String fecha, String titulo) {
         this.likes = likes;
         this.fecha = fecha;
         this.titulo = titulo;
@@ -24,11 +25,11 @@ public class Lanzamiento {
         this.likes = likes;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -44,5 +45,5 @@ public class Lanzamiento {
     public String toString() {
         return "Lanzamiento{" + "likes=" + likes + ", fecha=" + fecha + ", titulo=" + titulo + '}';
     }
-    
+
 }
