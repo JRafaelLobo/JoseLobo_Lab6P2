@@ -556,7 +556,7 @@ public class Main extends javax.swing.JFrame {
         }
         if ((int) js_Edad.getValue() >= 18) {
             if (test) {
-                Artista A = new Artista(tb_NombreDeArtista.getText(), tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
+                Artista A = new Artista(tb_NombreDeArtista.getText(), tb_Username.getText(), tb_PasswordCreate.getText(), (int) js_Edad.getValue());
                 usuarios.add(A);
                 JOptionPane.showMessageDialog(this, "Usuario Creado", "Usuario Creado", 1);
 
