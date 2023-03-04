@@ -55,6 +55,11 @@ public class Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jF_Artista = new javax.swing.JFrame();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTree_Artista = new javax.swing.JTree();
+        jPanel4 = new javax.swing.JPanel();
         lb_TituloLogin = new javax.swing.JLabel();
         tb_Usuario = new javax.swing.JTextField();
         lb_Usuario = new javax.swing.JLabel();
@@ -271,15 +276,53 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jT_Usuario)
         );
 
+        jF_Artista.setPreferredSize(new java.awt.Dimension(800, 500));
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Albunes");
+        JTree_Artista.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(JTree_Artista);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(550, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Main", jPanel1);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 469, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Crear", jPanel4);
+
         javax.swing.GroupLayout jF_ArtistaLayout = new javax.swing.GroupLayout(jF_Artista.getContentPane());
         jF_Artista.getContentPane().setLayout(jF_ArtistaLayout);
         jF_ArtistaLayout.setHorizontalGroup(
             jF_ArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         jF_ArtistaLayout.setVerticalGroup(
             jF_ArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -445,7 +488,16 @@ public class Main extends javax.swing.JFrame {
                     jF_Artista.pack();
                     jF_Artista.setLocationRelativeTo(this);
                     jF_Artista.setVisible(true);
-
+                    DefaultTreeModel T = (DefaultTreeModel) JTree_Artista.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) T.getRoot();
+                    for (Albun n : ((Artista) UsuarioActual).getAlbunes()) {
+                        DefaultMutableTreeNode r = new DefaultMutableTreeNode(n);
+                        raiz.add(r);
+                        for (Cancion m : n.getCanciones()) {
+                            DefaultMutableTreeNode s = new DefaultMutableTreeNode(m);
+                            r.add(s);
+                        }
+                    }
                 } else {
                     jF_Usuario.pack();
                     jF_Usuario.setLocationRelativeTo(this);
@@ -517,16 +569,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_IniciarSeccion;
     private javax.swing.JButton B_ReturnaCrear_Inicio;
     private javax.swing.JList<String> JList_Favoritas;
+    private javax.swing.JTree JTree_Artista;
     private javax.swing.JComboBox<String> jC_TipodeCuenta;
     private javax.swing.JFrame jF_Artista;
     private javax.swing.JFrame jF_Usuario;
     private javax.swing.JPanel jP_CrearArtista;
     private javax.swing.JPanel jP_Usuario_Main;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jT_Usuario;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTree jTree_Usuarios;
     private javax.swing.JFrame jf_CrearUsuario;
     private javax.swing.JSpinner js_Edad;
