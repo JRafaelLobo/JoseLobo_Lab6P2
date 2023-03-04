@@ -44,6 +44,14 @@ public class Main extends javax.swing.JFrame {
         jC_TipodeCuenta = new javax.swing.JComboBox<>();
         B_ReturnaCrear_Inicio = new javax.swing.JButton();
         jF_Usuario = new javax.swing.JFrame();
+        jT_Usuario = new javax.swing.JTabbedPane();
+        jP_Usuario_Main = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jF_Artista = new javax.swing.JFrame();
         lb_TituloLogin = new javax.swing.JLabel();
         tb_Usuario = new javax.swing.JTextField();
@@ -188,15 +196,75 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(139, Short.MAX_VALUE))
         );
 
+        jP_Usuario_Main.setName("Main"); // NOI18N
+
+        jScrollPane1.setViewportView(jTree1);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        javax.swing.GroupLayout jP_Usuario_MainLayout = new javax.swing.GroupLayout(jP_Usuario_Main);
+        jP_Usuario_Main.setLayout(jP_Usuario_MainLayout);
+        jP_Usuario_MainLayout.setHorizontalGroup(
+            jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_Usuario_MainLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+        jP_Usuario_MainLayout.setVerticalGroup(
+            jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_Usuario_MainLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jP_Usuario_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
+        jT_Usuario.addTab("Main", jP_Usuario_Main);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 469, Short.MAX_VALUE)
+        );
+
+        jT_Usuario.addTab("Otras Listas", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 469, Short.MAX_VALUE)
+        );
+
+        jT_Usuario.addTab("Listas", jPanel3);
+
         javax.swing.GroupLayout jF_UsuarioLayout = new javax.swing.GroupLayout(jF_Usuario.getContentPane());
         jF_Usuario.getContentPane().setLayout(jF_UsuarioLayout);
         jF_UsuarioLayout.setHorizontalGroup(
             jF_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+            .addComponent(jT_Usuario)
         );
         jF_UsuarioLayout.setVerticalGroup(
             jF_UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addComponent(jT_Usuario)
         );
 
         javax.swing.GroupLayout jF_ArtistaLayout = new javax.swing.GroupLayout(jF_Artista.getContentPane());
@@ -286,7 +354,7 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
         jf_CrearUsuario.setLocationRelativeTo(this);
         jf_CrearUsuario.setVisible(true);
-        
+
         jP_CrearArtista.setVisible(false);
     }//GEN-LAST:event_B_CrearUsuarioLoginMouseClicked
 
@@ -311,7 +379,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         boolean test = true;
         for (int i = 0; i < usuarios.size(); i++) {
-            
+
             if (tb_Username.getText().equals(usuarios.get(i).getUsername())) {
                 test = false;
                 break;
@@ -322,13 +390,13 @@ public class Main extends javax.swing.JFrame {
                 Artista A = new Artista(tb_NombreDeArtista.getText(), tb_Username.getText(), tb_Password.getText(), (int) js_Edad.getValue());
                 usuarios.add(A);
                 JOptionPane.showMessageDialog(this, "Usuario Creado", "Usuario Creado", 1);
-                
+
             } else {
                 JOptionPane.showMessageDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Tiene que ser mayor de 18 anos", "Menor de Edad", 2);
-            
+
         }
     }//GEN-LAST:event_B_CrearArtistaMouseClicked
 
@@ -337,7 +405,6 @@ public class Main extends javax.swing.JFrame {
 
         boolean test = true;
         for (int i = 0; i < usuarios.size(); i++) {
-            
             if (tb_Username.getText().equals(usuarios.get(i).getUsername())) {
                 test = false;
                 break;
@@ -350,7 +417,7 @@ public class Main extends javax.swing.JFrame {
                 tb_Username.setText("");
                 tb_PasswordCreate.setText("");
                 JOptionPane.showMessageDialog(this, "Usuario Creado", "Usuario Creado", 1);
-                
+
             } else {
                 JOptionPane.showMessageDialog(this, "Nombre de usuario ya existe", "Usuario Invalido", 2);
             }
@@ -431,7 +498,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jC_TipodeCuenta;
     private javax.swing.JFrame jF_Artista;
     private javax.swing.JFrame jF_Usuario;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jP_CrearArtista;
+    private javax.swing.JPanel jP_Usuario_Main;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jT_Usuario;
+    private javax.swing.JTree jTree1;
     private javax.swing.JFrame jf_CrearUsuario;
     private javax.swing.JSpinner js_Edad;
     private javax.swing.JLabel lb_Edad;
@@ -455,5 +530,5 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Lanzamiento> listaDeLanzamiento = new ArrayList();
     ArrayList<Cancion> canciones = new ArrayList();
     Usuario UsuarioActual;
-    
+
 }
