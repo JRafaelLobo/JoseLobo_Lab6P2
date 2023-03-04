@@ -60,6 +60,12 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTree_Artista = new javax.swing.JTree();
         jPanel4 = new javax.swing.JPanel();
+        P_CrearAlbun = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_TituloCancionAlbun = new javax.swing.JTextField();
+        tf_DuracionCancionAlbun = new javax.swing.JTextField();
+        B_SiguienteCancionAlbun = new javax.swing.JButton();
         P_CantAlbun = new javax.swing.JPanel();
         lb_AlbunName = new javax.swing.JLabel();
         tf_NombreAlbun = new javax.swing.JTextField();
@@ -70,12 +76,6 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         B_CrearAlbun = new javax.swing.JButton();
         B_CrearSingle = new javax.swing.JButton();
-        P_CrearAlbun = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        tf_TituloCancionAlbun = new javax.swing.JTextField();
-        tf_DuracionCancionAlbun = new javax.swing.JTextField();
-        B_SiguienteCancionAlbun = new javax.swing.JButton();
         lb_TituloLogin = new javax.swing.JLabel();
         tb_Usuario = new javax.swing.JTextField();
         lb_Usuario = new javax.swing.JLabel();
@@ -319,6 +319,53 @@ public class Main extends javax.swing.JFrame {
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setText("Titulo");
+
+        jLabel4.setText("Duracion");
+
+        B_SiguienteCancionAlbun.setText("Siguiente");
+        B_SiguienteCancionAlbun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_SiguienteCancionAlbunMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout P_CrearAlbunLayout = new javax.swing.GroupLayout(P_CrearAlbun);
+        P_CrearAlbun.setLayout(P_CrearAlbunLayout);
+        P_CrearAlbunLayout.setHorizontalGroup(
+            P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(P_CrearAlbunLayout.createSequentialGroup()
+                .addGroup(P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(P_CrearAlbunLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(tf_TituloCancionAlbun)
+                            .addComponent(tf_DuracionCancionAlbun, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)))
+                    .addGroup(P_CrearAlbunLayout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(B_SiguienteCancionAlbun)))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+        P_CrearAlbunLayout.setVerticalGroup(
+            P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(P_CrearAlbunLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_TituloCancionAlbun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tf_DuracionCancionAlbun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(B_SiguienteCancionAlbun)
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+
+        jPanel4.add(P_CrearAlbun, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 450));
+
         lb_AlbunName.setText("Nombre del Albun");
 
         jLabel1.setText("Cantidad de Canciones A crear");
@@ -386,53 +433,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanel4.add(B_CrearSingle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
-
-        jLabel3.setText("Titulo");
-
-        jLabel4.setText("Duracion");
-
-        B_SiguienteCancionAlbun.setText("Siguiente");
-        B_SiguienteCancionAlbun.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                B_SiguienteCancionAlbunMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout P_CrearAlbunLayout = new javax.swing.GroupLayout(P_CrearAlbun);
-        P_CrearAlbun.setLayout(P_CrearAlbunLayout);
-        P_CrearAlbunLayout.setHorizontalGroup(
-            P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(P_CrearAlbunLayout.createSequentialGroup()
-                .addGroup(P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(P_CrearAlbunLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(tf_TituloCancionAlbun)
-                            .addComponent(tf_DuracionCancionAlbun, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)))
-                    .addGroup(P_CrearAlbunLayout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(B_SiguienteCancionAlbun)))
-                .addContainerGap(135, Short.MAX_VALUE))
-        );
-        P_CrearAlbunLayout.setVerticalGroup(
-            P_CrearAlbunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(P_CrearAlbunLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_TituloCancionAlbun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tf_DuracionCancionAlbun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(B_SiguienteCancionAlbun)
-                .addContainerGap(155, Short.MAX_VALUE))
-        );
-
-        jPanel4.add(P_CrearAlbun, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 450));
 
         jTabbedPane1.addTab("Crear", jPanel4);
 
@@ -634,7 +634,7 @@ public class Main extends javax.swing.JFrame {
                         DefaultMutableTreeNode R = (DefaultMutableTreeNode) raiz.getChildAt(i);
                         ArrayList<Cancion> a = ((Reproduccion) R.getUserObject()).getCanciones();
                         for (Cancion cancion : a) {
-                            DefaultMutableTreeNode r = new DefaultMutableTreeNode(a);
+                            DefaultMutableTreeNode r = new DefaultMutableTreeNode(cancion);
                             ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(r);
                         }
                     }
